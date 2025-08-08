@@ -16,7 +16,7 @@
 // import { dehydrate } from "@tanstack/react-query";
 // import { HydrationBoundary } from "@tanstack/react-query";
 
-import NoteDetailsClient from "@/app/notes/[id]/NoteDetailsClient";
+import NoteDetailsClient from "@/app/notes/[id]/NoteDetails.Client";
 import { fetchNoteById } from "@/lib/api";
 import {
   QueryClient,
