@@ -26,10 +26,18 @@
 // export default Notes;
 
 import Notes from "@/app/notes/Notes.client";
-export default function NotesPage() {
+import { fetchNotes } from "@/lib/api";
+// import { Note } from "@/types/note";
+export default async function NotesPage() {
+  // const notes = await fetchNotes();
+  const { notes, totalPages } = await fetchNotes({
+    page: 1,
+    perPage: 12,
+    search: "",
+  });
   return (
     <div>
-      <Notes />
+      <Notes initialNotes={notes} initialTotalPages={totalPages} />
     </div>
   );
 }

@@ -1,21 +1,3 @@
-// import { fetchNoteById } from "@/lib/api";
-// type Props = {
-//   params: Promise<{ id: string }>;
-// };
-
-// const NoteDetails = async ({ params }: Props) => {
-//   const { id } = await params;
-//   const note = await fetchNoteById(id);
-//   console.log(note);
-
-//   return <div>NoteDetails</div>;
-// };
-
-// export default NoteDetails;
-
-// import { dehydrate } from "@tanstack/react-query";
-// import { HydrationBoundary } from "@tanstack/react-query";
-
 import NoteDetailsClient from "@/app/notes/[id]/NoteDetails.client";
 import { fetchNoteById } from "@/lib/api";
 import {

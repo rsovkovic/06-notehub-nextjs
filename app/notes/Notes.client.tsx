@@ -9,11 +9,16 @@ import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Modal from "@/components/Modal/Modal";
+import { Note } from "@/types/note";
 // import Loader from "../Loader/Loader";
 // import ErrorMessage from "../ErrorMessage/ErrorMessage";
 // import EmptyMessage from "../Empty/EmptyMessage";
+interface NotesProps {
+  initialNotes: Note[];
+  initialTotalPages: number;
+}
 
-export default function App() {
+export default function Notes({ initialNotes, initialTotalPages }: NotesProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isLoading, isError, isSuccess } = useQuery({
@@ -22,6 +27,10 @@ export default function App() {
       fetchNotes({ page: currentPage, perPage: 12, search: searchQuery }),
     enabled: true,
     placeholderData: keepPreviousData,
+    initialData: {
+      notes: initialNotes,
+      totalPages: initialTotalPages,
+    },
   });
   const updateSearchQuery = useDebouncedCallback(
     (value: string) => setSearchQuery(value),
